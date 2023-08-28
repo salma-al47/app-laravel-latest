@@ -14,20 +14,20 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 RUN composer install
 
 # Set up Nginx
-#COPY ./nginx.conf /etc/nginx/sites-available/default
-#RUN ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/
+COPY ./nginx.conf /etc/nginx/sites-available/default
+RUN ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/
 
 # Set working directory
-#WORKDIR /var/www
+WORKDIR /var/www
 
 # Copy existing application directory
-#COPY . .
+COPY . .
 
 # Install Composer dependencies
-#RUN composer install
+RUN composer install
 
 # Expose port 80 for Nginx
-#EXPOSE 80
+EXPOSE 80
 
 # Start Nginx and PHP-FPM
-#CMD service nginx start && php-fpm
+CMD service nginx start && php-fpm
