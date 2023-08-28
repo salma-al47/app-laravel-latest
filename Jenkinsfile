@@ -4,6 +4,7 @@ pipeline {
         DOCKER_IMAGE_NAME = "backend"
         GITHUB_REPO_URL = "https://github.com/salma-al47/app-laravel-latest.git"
     }
+
     stages {
         stage('Checkout') {
             steps {
@@ -11,17 +12,18 @@ pipeline {
                 checkout scm
             }
         }
-        
+
         stage('Build') {
             steps {
                 // Étape pour construire l'image Docker
                 sh "docker build -t \$DOCKER_IMAGE_NAME ."
             }
         }
-      
+
         stage('Test') {
             steps {
-                sh "phpunit" 
+                // Assurez-vous que PHP et Composer sont déjà installés dans votre image
+                sh "phpunit"
             }
         }
 
@@ -41,7 +43,3 @@ pipeline {
     }
 }
 
-
-
-
- 
