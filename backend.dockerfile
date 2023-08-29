@@ -23,6 +23,7 @@ WORKDIR /var/www
 # Copy existing application directory
 COPY . .
 
+RUN composer update
 # Install Composer dependencies
 RUN composer install
 
