@@ -3,6 +3,7 @@ pipeline {
     environment {
         DOCKER_IMAGE_NAME = "backend"
         GITHUB_REPO_URL = "https://github.com/salma-al47/app-laravel-latest.git"
+        DOCKERHUB_REGISTRY = 'https://index.docker.io/v1/'
     }
 
     stages {
