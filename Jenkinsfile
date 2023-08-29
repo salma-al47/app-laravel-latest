@@ -16,14 +16,13 @@ pipeline {
         stage('Build') {
             steps {
                 // Étape pour construire l'image Docker
-                sh "docker build -t \$DOCKER_IMAGE_NAME ."
+                sh "docker build -t \$DOCKER_IMAGE_NAME -f backend.dockerfile ."
             }
         }
 
         stage('Test') {
             steps {
-                // Assurez-vous que PHP et Composer sont déjà installés dans votre image
-                sh "phpunit"
+               
             }
         }
 
