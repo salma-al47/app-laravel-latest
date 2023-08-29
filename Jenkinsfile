@@ -21,13 +21,12 @@ pipeline {
         }
 
        
-
         stage('Push to Docker Hub') {
             steps {
-                // Connexion à Docker Hub
+                // Connexion à Docker Hub en utilisant les informations d'identification
                 script {
                     withCredentials([usernamePassword(credentialsId: 'dockerhub_credentials', passwordVariable: 'DOCKERHUB_PASSWORD', usernameVariable: 'DOCKERHUB_USERNAME')]) {
-                        sh "docker login -u \$DOCKERHUB_USERNAME -p \$DOCKERHUB_PASSWORD"
+                        sh "echo \$DOCKERHUB_PASSWORD | docker login -u \$DOCKERHUB_USERNAME --password-stdin"
                     }
                 }
 
