@@ -9,7 +9,8 @@ RUN docker-php-ext-configure gd --with-freetype --with-jpeg && docker-php-ext-in
 
 # Install Composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
-
+# Install PHPUnit
+RUN curl -sS https://phar.phpunit.de/phpunit.phar -o /usr/local/bin/phpunit && chmod +x /usr/local/bin/phpunit
 # Install Composer dependencies
 RUN composer install
 
