@@ -32,10 +32,9 @@ pipeline {
                 }
 
                 // Pousser l'image sur Docker Hub
-                sh "docker tag backend app-laravel"
-                sh "docker tag backend app-laravel:v0.0.1"
+                sh "docker tag backend registry.hub.docker.com/salmaal/app-laravel:v0.0.1"
                 sh "docker images"
-                sh "docker push registry.hub.docker.com/salmaal/app-laravel"
+                sh "docker push registry.hub.docker.com/salmaal/app-laravel:v0.0.1"
             }
         }
     }
