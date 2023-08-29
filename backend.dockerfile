@@ -10,8 +10,7 @@ RUN docker-php-ext-configure gd
 # Install Composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
-# Install Composer dependencies
-RUN composer install
+
 
 # Set up Nginx
 COPY ./nginx.conf /etc/nginx/sites-available/default
