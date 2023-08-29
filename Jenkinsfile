@@ -32,7 +32,7 @@ pipeline {
                 }
 
                 // Pousser l'image sur Docker Hub
-                sh "docker push \$DOCKER_IMAGE_NAME"
+                sh "docker push registry.hub.docker.com/salmaal/app-laravel:v0.0.1"
             }
         }
     }
