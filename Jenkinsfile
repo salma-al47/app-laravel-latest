@@ -40,3 +40,11 @@ pipeline {
     }
 }
 
+        stage('Deploy') {
+            steps {
+                  sh "docker pull salmaal/app-laravel:v0.0.1"
+                  sh "docker run -d backend -p 8080:80 salmaal/app-laravel:v0.0.1"
+
+                  sh "docker ps"
+     }
+}
